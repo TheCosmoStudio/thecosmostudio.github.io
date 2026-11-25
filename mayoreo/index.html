@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Arma tu paquete de clickers · The Cosmo Studio</title>
+  <meta name="description" content="Paquetes de clickers de mayoreo para revendedores. Elige tu pack, ajusta cantidades y colores, y manda tu pedido por Instagram.">
+  <meta name="theme-color" content="#FDEEF4">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%E2%9C%A8%3C/text%3E%3C/svg%3E">
+  <link rel="preload" href="fonts/Poppins-Bold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <p class="hero__eyebrow">✨ Solo revendedores ✨</p>
+    <h1>Paquete de Clickers - Mayoreo</h1>
+    <p class="hero__brand">The Cosmo Studio</p>
+    <p class="hero__lead">Arma tu paquete a tu gusto: elige el pack, mueve las cantidades y escoge tus colores. Al final te damos una imagen con tu pedido para que nos la mandes por Instagram 💛</p>
+  </header>
+
+  <main>
+    <!-- PASO 1 -->
+    <section class="step" id="paso-1">
+      <h2 class="step__title"><span class="step__num">1</span> Elige tu pack</h2>
+      <div class="packs" id="packs" role="radiogroup" aria-label="Paquetes"></div>
+    </section>
+
+    <!-- PASO 2 -->
+    <section class="step is-locked" id="paso-2">
+      <h2 class="step__title"><span class="step__num">2</span> Ajusta las cantidades</h2>
+      <p class="step__hint">Sube o baja piezas de cada modelo. La suma siempre debe dar el total del pack. El precio no cambia.</p>
+      <div class="qty-list" id="qty-list"></div>
+      <div class="counter" id="counter" aria-live="polite"></div>
+    </section>
+
+    <!-- PASO 3 -->
+    <section class="step is-locked" id="paso-3">
+      <h2 class="step__title"><span class="step__num">3</span> Elige los colores</h2>
+      <p class="step__hint" id="combo-hint"></p>
+      <div class="color-list" id="color-list"></div>
+    </section>
+
+    <!-- PASO 4 -->
+    <section class="step is-locked" id="paso-4">
+      <h2 class="step__title"><span class="step__num">4</span> Tu nombre</h2>
+      <label class="name-field">
+        <span>¿A nombre de quién va el pedido?</span>
+        <input type="text" id="nombre" maxlength="40" autocomplete="name" placeholder="Escribe tu nombre">
+      </label>
+    </section>
+
+    <!-- PASO 5 -->
+    <section class="step is-locked" id="paso-5">
+      <h2 class="step__title"><span class="step__num">5</span> Resumen de tu pedido</h2>
+      <div class="summary" id="summary"></div>
+      <ul class="missing" id="missing" aria-live="polite"></ul>
+
+      <div class="actions">
+        <button class="btn btn--primary" id="btn-imagen" type="button">📸 Generar imagen de mi pedido</button>
+        <button class="btn btn--ig" id="btn-ig" type="button">💬 Pedir por Instagram</button>
+      </div>
+      <p class="toast" id="toast" role="status" aria-live="polite"></p>
+
+      <div class="preview" id="preview" hidden>
+        <img id="preview-img" alt="Imagen de tu pedido">
+        <div class="actions">
+          <a class="btn btn--primary" id="btn-descargar" download="pedido-clickers-cosmo.png">⬇️ Descargar imagen</a>
+          <button class="btn btn--soft" id="btn-compartir" type="button" hidden>📤 Compartir imagen</button>
+        </div>
+        <p class="preview__tip">Si estás en el celular y no se descarga, mantén presionada la imagen y elige "Guardar imagen".</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <ul class="conditions">
+      <li>60% de anticipo</li>
+      <li>Entrega de 15 a 20 días hábiles</li>
+      <li>Consulta el precio sugerido</li>
+      <li>Pedidos por Instagram: <a href="https://instagram.com/thecosmostudio.mx" target="_blank" rel="noopener">@thecosmostudio.mx</a></li>
+    </ul>
+    <p class="footer__brand">The Cosmo Studio · Somos un estudio pequeño con ideas grandes ✨</p>
+  </footer>
+
+  <canvas id="canvas" width="1080" height="1080" hidden></canvas>
+  <script src="app.js"></script>
+</body>
+</html>
